@@ -4,6 +4,8 @@
  */
 package gui;
 
+import dao.DAOEventos;
+
 /**
  *
  * @author crazy
@@ -13,8 +15,11 @@ public class FrmCrearEvento extends javax.swing.JFrame {
     /**
      * Creates new form frmVistaEventosUsuario
      */
+    
+    
     public FrmCrearEvento() {
         initComponents();
+        
     }
 
     /**
@@ -138,6 +143,11 @@ public class FrmCrearEvento extends javax.swing.JFrame {
 
         crearBoton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         crearBoton.setText("Crear");
+        crearBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearBotonActionPerformed(evt);
+            }
+        });
         jPanel1.add(crearBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, 190, 80));
 
         fondoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo1.png"))); // NOI18N
@@ -182,6 +192,13 @@ public class FrmCrearEvento extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_cancelarBotonActionPerformed
+
+    private void crearBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearBotonActionPerformed
+        // TODO add your handling code here:
+        DAOEventos daoeventos = new DAOEventos();
+        daoeventos.insertarEvento(eventoTextField, fechaTextField, horaTextField, lugarTextField, descripcionTextArea, horasCulturalesTextField);
+        this.dispose();
+    }//GEN-LAST:event_crearBotonActionPerformed
 
     /**
      * @param args the command line arguments

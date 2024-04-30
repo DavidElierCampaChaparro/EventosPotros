@@ -16,3 +16,7 @@ insert into eventos(Nombre, Fecha, Hora, Descripcion, Lugar, HorasCultura)
 				   ('Libertad financiera', 'los dias 10, 12 y 13 de enero', 'todos los dias a las 12', 'Este evento lo traen desde adasdasdasd', 'teatro del itson', 5),
                    ('Nutricion', 'todos los dias', '10 - 12 del dia' , 'asdasdadasdasdsa', 'tutorias itson nainari', 1),
                    ('Emprendimiento y empresas' , 'del 19 de mayo al 25 de julio', 'de 8AM hasta las 6 PM' , 'Este gran evento es impartido porasdasdasdadsad', 'tutorias itson centro', 0);
+                   
+select * from eventos;
+
+select nombre, fecha, hora, lugar from eventos;

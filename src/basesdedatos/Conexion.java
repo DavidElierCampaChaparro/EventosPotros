@@ -38,17 +38,16 @@ public class Conexion {
         return cx;
     }
     
+    public Connection getConnection(){
+        return cx;
+    }
+    
     public void desconectar(){
         try {
             cx.close();
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    public static void main(String[] args){
-        Conexion c = new Conexion("cia");
-        c.conectar();
     }
     
     
