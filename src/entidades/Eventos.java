@@ -21,13 +21,13 @@ public class Eventos {
         
     }
 
-    public Eventos(String Nombre, String Fecha, String Hora, String Lugar, String Descripcion, int HorasCultura) {
+    public Eventos(String Nombre, String Fecha, String Hora, String Lugar, String Descripcion, String HorasCultura) {
         this.Nombre = Nombre;
         this.Fecha = Fecha;
         this.Hora = Hora;
         this.Lugar = Lugar;
         this.Descripcion = Descripcion;
-        this.HorasCultura = HorasCultura;
+        this.HorasCultura = Integer.parseInt(HorasCultura);
     }
 
     public int getID() {

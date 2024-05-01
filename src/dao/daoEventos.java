@@ -7,27 +7,18 @@ package dao;
 import basesdedatos.Conexion;
 import entidades.Eventos;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import java.sql.CallableStatement;
 
 /**
  *
  * @author David Elier Campa Chaparro 245178
  */
-public class DAOEventos {
+public class DAOEventos implements IDAOEventos{
     
     
     
-    
-    public void insertarEvento(JTextField paramNombre, JTextField paramFecha, JTextField paramHora, JTextField paramLugar, JTextArea paramDescripcion, JTextField paramHorasCultura){
-        Eventos evento = new Eventos();
-        evento.setNombre(paramNombre.getText());
-        evento.setFecha(paramFecha.getText());
-        evento.setHora(paramHora.getText());
-        evento.setLugar(paramLugar.getText());
-        evento.setDescripcion(paramDescripcion.getText());
-        evento.setHorasCultura(Integer.parseInt(paramHorasCultura.getText()));
+    @Override
+    public void insertarEvento(Eventos evento){
         
         Conexion conexion = new Conexion("eventospotros");
         
@@ -49,6 +40,11 @@ public class DAOEventos {
         
     }
     
-    
+    @Override
+    public void eliminarEvento(int ID) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+
     
 }
