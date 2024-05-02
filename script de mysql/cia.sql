@@ -15,4 +15,4 @@ insert into personas(ID, Nombre, HorasCultura, contrasena, esAdmin)
                     (123456,'Daniel Campoa' , 40, 'contrasena123', false),
                     (123455, 'Pablo', 0, 'contrasena123', false);
 
-
+select Nombre, HorasCultura, Contrasena, esAdmin from personas where Nombre = ? and contrasena = ?;

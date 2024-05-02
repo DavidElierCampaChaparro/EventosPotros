@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import basesdedatos.Conexion;
@@ -9,13 +5,9 @@ import entidades.Eventos;
 import javax.swing.JOptionPane;
 import java.sql.CallableStatement;
 
-/**
- *
- * @author David Elier Campa Chaparro 245178
- */
+  // @author David Elier Campa Chaparro 245178
+ 
 public class DAOEventos implements IDAOEventos{
-    
-    
     
     @Override
     public void insertarEvento(Eventos evento){
@@ -23,6 +15,7 @@ public class DAOEventos implements IDAOEventos{
         Conexion conexion = new Conexion("eventospotros");
         
         String insercion = "insert into eventos(Nombre, Fecha, Hora, Descripcion, Lugar, HorasCultura) values (?, ?, ?, ?, ?, ?);";
+        
         try {
             CallableStatement cs = conexion.conectar().prepareCall(insercion);
             cs.setString(1, evento.getNombre());
@@ -33,11 +26,10 @@ public class DAOEventos implements IDAOEventos{
             cs.setInt(6, evento.getHorasCultura());
             cs.execute();
             JOptionPane.showMessageDialog(null, "Se ha insertado correctamente el evento");
+            conexion.desconectar();
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo insertar el evento" + e.toString());
-        }
-        
-        
+        }        
     }
     
     @Override

@@ -1,20 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gui;
 
-/**
- *
- * @author crazy
- */
-public class FrmPerfil extends javax.swing.JFrame {
+ // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
+import dao.Factory;
+import dao.IDAOPersonas;
+import entidades.Personas;
 
-    /**
-     * Creates new form frmInicio
-     */
-    public FrmPerfil() {
+
+ 
+public class FrmPerfil extends javax.swing.JFrame {
+    private IDAOPersonas personas;
+    private int personaID;
+    private Personas persona;
+    
+    public FrmPerfil(int personaID) {
         initComponents();
+        personas = Factory.getPersonas();
+        this.personaID = personaID;
+        
+        persona = personas.consultarPersona(personaID);
+        
+        nombreTextField1.setText(persona.getNombre());
+        idTextField1.setText(Integer.toString(persona.getID()));
+        horasCulturaTextField.setText(Integer.toString(persona.getHorasCultura()));
     }
     
     @SuppressWarnings("unchecked")
@@ -37,18 +44,21 @@ public class FrmPerfil extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        idLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        idLabel1.setBackground(new java.awt.Color(0, 0, 0));
         idLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idLabel1.setForeground(new java.awt.Color(0, 0, 0));
         idLabel1.setText("Horas cultura:");
         jPanel1.add(idLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, -1, -1));
 
-        nombreLabel.setBackground(new java.awt.Color(255, 255, 255));
+        nombreLabel.setBackground(new java.awt.Color(0, 0, 0));
         nombreLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        nombreLabel.setForeground(new java.awt.Color(0, 0, 0));
         nombreLabel.setText("Nombre");
         jPanel1.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
 
-        horasCulturalesLabel.setBackground(new java.awt.Color(255, 255, 255));
+        horasCulturalesLabel.setBackground(new java.awt.Color(0, 0, 0));
         horasCulturalesLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        horasCulturalesLabel.setForeground(new java.awt.Color(0, 0, 0));
         horasCulturalesLabel.setText("ID");
         jPanel1.add(horasCulturalesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
 
@@ -86,6 +96,7 @@ public class FrmPerfil extends javax.swing.JFrame {
         });
         jPanel1.add(okBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 520, 220, 90));
 
+        fondoLabel.setBackground(new java.awt.Color(0, 0, 0));
         fondoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo1.png"))); // NOI18N
         jPanel1.add(fondoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 720));
 

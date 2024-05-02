@@ -22,6 +22,7 @@
         <Menu class="javax.swing.JMenu" name="menuCerrarSesion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
+            <Property name="horizontalTextPosition" type="int" value="10"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemCerrarSesi&#xf3;n">
