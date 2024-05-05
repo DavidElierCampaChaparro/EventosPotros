@@ -35,7 +35,7 @@ public class FrmEditarEvento extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         descripcionTextArea = new javax.swing.JTextArea();
         cancelarBoton = new javax.swing.JButton();
-        crearBoton = new javax.swing.JButton();
+        guardarBoton = new javax.swing.JButton();
         fondoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -140,14 +140,14 @@ public class FrmEditarEvento extends javax.swing.JFrame {
         });
         jPanel1.add(cancelarBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 560, 190, 80));
 
-        crearBoton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        crearBoton.setText("Crear");
-        crearBoton.addActionListener(new java.awt.event.ActionListener() {
+        guardarBoton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        guardarBoton.setText("Guardar");
+        guardarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crearBotonActionPerformed(evt);
+                guardarBotonActionPerformed(evt);
             }
         });
-        jPanel1.add(crearBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, 190, 80));
+        jPanel1.add(guardarBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, 190, 80));
 
         fondoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo1.png"))); // NOI18N
         jPanel1.add(fondoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 720));
@@ -192,19 +192,18 @@ public class FrmEditarEvento extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_cancelarBotonActionPerformed
 
-    private void crearBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearBotonActionPerformed
+    private void guardarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBotonActionPerformed
         if(horasCulturalesTextField.getText() == null || "".equals(horasCulturalesTextField.getText())){
             JOptionPane.showMessageDialog(null, "Inserte todos los campos incluyendo horas culturales");
         }
         Eventos evento = new Eventos(eventoTextField.getText(), fechaTextField.getText(), horaTextField.getText(), lugarTextField.getText(), descripcionTextArea.getText(), horasCulturalesTextField.getText());
         eventos.insertarEvento(evento);
         this.dispose();
-    }//GEN-LAST:event_crearBotonActionPerformed
+    }//GEN-LAST:event_guardarBotonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarBoton;
-    private javax.swing.JButton crearBoton;
     private javax.swing.JLabel descripcionLabel;
     private javax.swing.JTextArea descripcionTextArea;
     private javax.swing.JLabel eventoLabel;
@@ -212,6 +211,7 @@ public class FrmEditarEvento extends javax.swing.JFrame {
     private javax.swing.JLabel fechaLabel;
     private javax.swing.JTextField fechaTextField;
     private javax.swing.JLabel fondoLabel;
+    private javax.swing.JButton guardarBoton;
     private javax.swing.JLabel horaLabel;
     private javax.swing.JTextField horaTextField;
     private javax.swing.JLabel horasCulturalesLabel;
