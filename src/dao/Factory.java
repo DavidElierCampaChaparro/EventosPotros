@@ -4,7 +4,7 @@
  */
 package dao;
 
-import gui.FrmVistaEventosAdmin;
+
 
 
  // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
@@ -12,7 +12,6 @@ import gui.FrmVistaEventosAdmin;
 public class Factory {
     private static IDAOEventos eventos;
     private static IDAOPersonas personas;
-    private static FrmVistaEventosAdmin frmVistaEventosAdmin;
     
     public static IDAOEventos getEventos() {
         return (eventos == null) ? (eventos = new DAOEventos()) : eventos;

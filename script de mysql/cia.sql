@@ -14,5 +14,7 @@ insert into personas(ID, Nombre, HorasCultura, contrasena, esAdmin)
 					(245177, 'Maximiliano Reyna', 10, 'contrasena123', false),
                     (123456,'Daniel Campoa' , 40, 'contrasena123', false),
                     (123455, 'Pablo', 0, 'contrasena123', false);
+                    
+insert into personas(ID, Nombre, HorasCultura, contrasena, esAdmin) values (1, 'admin', 1, '1', true);
 
 select Nombre, HorasCultura, Contrasena, esAdmin from personas where Nombre = ? and contrasena = ?;

@@ -1,14 +1,26 @@
 package gui;
 
+import dao.IDAOEventos;
+import dao.Factory;
+import javax.swing.table.DefaultTableModel;
+
 
 // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
  
 public class FrmVistaEventosAdmin extends javax.swing.JFrame {
     private int personaID;
+    private IDAOEventos eventos;
     
     public FrmVistaEventosAdmin(int personaID) {
+        
+        
+        
         initComponents();
         this.personaID = personaID;
+        eventos = Factory.getEventos();
+        DefaultTableModel modelo = eventos.mostrarEventos();
+        eventosTable.setModel(modelo);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -45,21 +57,25 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        eventosTable.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        eventosTable.setFocusable(false);
+        eventosTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        eventosTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         eventosTable.getTableHeader().setReorderingAllowed(false);
+        eventosTable.setUpdateSelectionOnSort(false);
+        eventosTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eventosTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(eventosTable);
-        if (eventosTable.getColumnModel().getColumnCount() > 0) {
-            eventosTable.getColumnModel().getColumn(0).setResizable(false);
-            eventosTable.getColumnModel().getColumn(1).setResizable(false);
-            eventosTable.getColumnModel().getColumn(2).setResizable(false);
-            eventosTable.getColumnModel().getColumn(3).setResizable(false);
-        }
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 990, 580));
 
@@ -156,6 +172,10 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
         FrmAcercaDe fad = new FrmAcercaDe();
         fad.setVisible(true);
     }//GEN-LAST:event_menuItemAcercaDeActionPerformed
+
+    private void eventosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eventosTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eventosTableMouseClicked
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

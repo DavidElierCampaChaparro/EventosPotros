@@ -4,22 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/dao/DAOEventos.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/entidades/Personas.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmPerfil.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/main/main.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmInicio.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/entidades/Eventos.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmVistaEventosAdmin.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/basesdedatos/Conexion.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmAcercaDe.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/imagenes/fondoInicio.png</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmEditarEvento.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmVistaEventosUsuario.java</file>
             <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/dao/IDAOEventos.java</file>
+            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmVistaEventosUsuario.java</file>
             <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmVerEvento.java</file>
             <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmCrearEvento.java</file>
+            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmInicio.java</file>
             <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/dao/IDAOPersonas.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/dao/DAOPersonas.java</file>
+            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmVistaEventosAdmin.java</file>
+            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/basesdedatos/Conexion.java</file>
             <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/dao/Factory.java</file>
         </group>
     </open-files>

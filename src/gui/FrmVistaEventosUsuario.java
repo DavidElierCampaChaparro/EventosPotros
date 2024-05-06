@@ -1,12 +1,22 @@
 package gui;
 
 // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
+
+import dao.Factory;
+import dao.IDAOEventos;
+import javax.swing.table.DefaultTableModel;
+
 public class FrmVistaEventosUsuario extends javax.swing.JFrame {
     private int personaID;
+    private IDAOEventos eventos;
 
     public FrmVistaEventosUsuario(int personaID) {
         initComponents();
         this.personaID = personaID;
+        eventos = Factory.getEventos();
+        
+        DefaultTableModel modelo = eventos.mostrarEventos();
+        eventosTable.setModel(modelo);
     }
     
     @SuppressWarnings("unchecked")
