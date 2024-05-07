@@ -15,6 +15,8 @@ import java.sql.SQLException;
 public class DAOEventos implements IDAOEventos{
     
 
+    //  este método está pensado para consultar todos los datos de un evento al solo recibir un evento con
+    // 4 atributos nombre, fecha, hora, y lugar de la table
     @Override
     public Evento consultarEvento(Evento evento) {
         Conexion conexion = new Conexion("eventospotros");
@@ -46,6 +48,7 @@ public class DAOEventos implements IDAOEventos{
         return eventoConsultado;
     }
 
+    // método para insertar
     @Override
     public void insertarEvento(Evento evento){
         Conexion conexion = new Conexion("eventospotros");
@@ -67,6 +70,7 @@ public class DAOEventos implements IDAOEventos{
         }        
     }
     
+    // método para eliminar
     @Override
     public void eliminarEvento(Evento evento){
         Conexion conexion = new Conexion("eventospotros");
@@ -83,6 +87,8 @@ public class DAOEventos implements IDAOEventos{
         }        
     }
     
+    // este método regresa un default table model con todos los eventos
+    // está pensado para setearlo en eventosTable para mostrar sus eventos
     @Override
     public DefaultTableModel mostrarEventos(){
         String[] nombresColumnas = {"Nombre", "Fecha", "Hora", "Lugar"};
@@ -121,6 +127,7 @@ public class DAOEventos implements IDAOEventos{
         return modelo;
     }
    
+    // está pensado para usarse el cuadro Guardar Evento del FrmEditarEvento
     @Override
     public void actualizarEvento(Evento evento){
         Conexion conexion = new Conexion("eventospotros");

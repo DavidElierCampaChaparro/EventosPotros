@@ -9,9 +9,11 @@ import java.sql.PreparedStatement;
 
 
 // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
- 
+// esta clase solo es de consultas de las personas en el cia
+
 public class DAOPersonas implements IDAOPersonas {
 
+    // login
     @Override
     public Persona consultarPersonaLogin(String nombre, String contrasena) {
         Conexion conexion = new Conexion("cia");
@@ -45,6 +47,8 @@ public class DAOPersonas implements IDAOPersonas {
         return personaConsultada;
     }
     
+    // este método está pensado para recibir el ID de la persona
+    // para conseguir sus datos en el FrmPerfil
     @Override
     public Persona consultarPersona(int ID) {
         Conexion conexion = new Conexion("cia");

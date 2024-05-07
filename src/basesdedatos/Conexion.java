@@ -22,6 +22,7 @@ public class Conexion {
         this.bd = bd;
     }
     
+    // retorna la conexión establecida para no tener que establecerla a cada ratito
     public Connection conectar(){
         try {
             Class.forName(driver);

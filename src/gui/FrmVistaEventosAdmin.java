@@ -12,6 +12,8 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
     private int personaID;
     private IDAOEventos eventos;
     
+    // recibe el id de la persona con la que se inició sesión 
+    // para poder consultarla en el FrmPerfil
     public FrmVistaEventosAdmin(int personaID) {
         initComponents();
         this.personaID = personaID;
