@@ -2,8 +2,9 @@ package gui;
 
 // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
 
-import dao.Factory;
-import dao.IDAOEventos;
+import crud.Factory;
+import crud.IDAOEventos;
+import objetosNegocio.Evento;
 import javax.swing.table.DefaultTableModel;
 
 public class FrmVistaEventosUsuario extends javax.swing.JFrame {
@@ -14,7 +15,9 @@ public class FrmVistaEventosUsuario extends javax.swing.JFrame {
         initComponents();
         this.personaID = personaID;
         eventos = Factory.getEventos();
-        
+
+        // para realizar la consulta de los eventos en la base de datos 
+        // y meterlos a la tabla
         DefaultTableModel modelo = eventos.mostrarEventos();
         eventosTable.setModel(modelo);
     }
@@ -50,15 +53,27 @@ public class FrmVistaEventosUsuario extends javax.swing.JFrame {
                 "Nombre", "Fecha", "Hora", "Lugar"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         eventosTable.getTableHeader().setReorderingAllowed(false);
+        eventosTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eventosTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(eventosTable);
         if (eventosTable.getColumnModel().getColumnCount() > 0) {
             eventosTable.getColumnModel().getColumn(0).setResizable(false);
@@ -126,23 +141,44 @@ public class FrmVistaEventosUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcercaDeActionPerformed
-        // TODO add your handling code here:
         FrmAcercaDe fad = new FrmAcercaDe();
         fad.setVisible(true);
     }//GEN-LAST:event_menuItemAcercaDeActionPerformed
 
     private void menuItemPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemPerfilActionPerformed
-        // TODO add your handling code here:
         FrmPerfil fp = new FrmPerfil(personaID);
         fp.setVisible(true);
     }//GEN-LAST:event_menuItemPerfilActionPerformed
 
     private void menuItemCerrarSesiónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCerrarSesiónActionPerformed
-        // TODO add your handling code here:
         FrmInicio fi = new FrmInicio();
         fi.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuItemCerrarSesiónActionPerformed
+
+    private void eventosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eventosTableMouseClicked
+        int fila = eventosTable.getSelectedRow();
+        Evento evento;
+        String nombreEvento;
+        String fechaEvento;
+        String horaEvento;
+        String lugarEvento;
+        
+        // el metodo getSelectedRow regresa -1 si no se clickeó en ninguna fila,
+        // por ende si no es -1, procederemos a extraer los datos de las celdas para
+        // crear un frame para vizualizar una consulta de ese evento
+        if (fila != -1){
+            nombreEvento = (String) eventosTable.getValueAt(fila, 0);
+            fechaEvento = (String) eventosTable.getValueAt(fila, 1);
+            horaEvento = (String) eventosTable.getValueAt(fila, 2);
+            lugarEvento = (String) eventosTable.getValueAt(fila, 3);
+            evento = new Evento(nombreEvento, fechaEvento, horaEvento, lugarEvento);
+            
+            FrmVerEvento fee = new FrmVerEvento(evento);
+            fee.setVisible(true);
+            
+        }
+    }//GEN-LAST:event_eventosTableMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable eventosTable;

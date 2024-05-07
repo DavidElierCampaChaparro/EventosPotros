@@ -1,13 +1,32 @@
 package gui;
 
  // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
+import crud.Factory;
+import crud.IDAOEventos;
+import objetosNegocio.Evento;
+
+
  
 public class FrmVerEvento extends javax.swing.JFrame {
-
-    public FrmVerEvento() {
+    private IDAOEventos eventos;
+    private Evento evento;
+    
+    public FrmVerEvento(Evento datos) {
         initComponents();
+        eventos = Factory.getEventos();
+        this.evento = eventos.consultarEvento(datos);
+        inicializarTextFields();
     }
 
+    public void inicializarTextFields(){
+        eventoTextField.setText(this.evento.getNombre());
+        fechaTextField.setText(this.evento.getFecha());
+        horaTextField.setText(this.evento.getHora());
+        lugarTextField.setText(this.evento.getLugar());
+        descripcionTextArea.setText(this.evento.getDescripcion());
+        horasCulturalesTextField.setText(Integer.toString(this.evento.getHorasCultura()));
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -36,32 +55,43 @@ public class FrmVerEvento extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        eventoLabel.setBackground(new java.awt.Color(204, 255, 255));
         eventoLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        eventoLabel.setForeground(new java.awt.Color(204, 255, 255));
         eventoLabel.setText("Evento:");
         jPanel1.add(eventoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
+        descripcionLabel.setBackground(new java.awt.Color(204, 255, 255));
         descripcionLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        descripcionLabel.setForeground(new java.awt.Color(204, 255, 255));
         descripcionLabel.setText("Descripción del evento:");
         jPanel1.add(descripcionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, -1, -1));
 
+        lugarLabel.setBackground(new java.awt.Color(204, 255, 255));
         lugarLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lugarLabel.setForeground(new java.awt.Color(204, 255, 255));
         lugarLabel.setText("Lugar:");
         jPanel1.add(lugarLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, -1));
 
+        horaLabel.setBackground(new java.awt.Color(204, 255, 255));
         horaLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        horaLabel.setForeground(new java.awt.Color(204, 255, 255));
         horaLabel.setText("Hora");
         jPanel1.add(horaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
 
+        fechaLabel.setBackground(new java.awt.Color(204, 255, 255));
         fechaLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        fechaLabel.setForeground(new java.awt.Color(204, 255, 255));
         fechaLabel.setText("Fecha:");
         jPanel1.add(fechaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
 
+        horasCulturalesLabel.setBackground(new java.awt.Color(204, 255, 255));
         horasCulturalesLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        horasCulturalesLabel.setForeground(new java.awt.Color(204, 255, 255));
         horasCulturalesLabel.setText("Horas culturales:");
         jPanel1.add(horasCulturalesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 490, -1, -1));
 
         lugarTextField.setEditable(false);
-        lugarTextField.setText("jTextField1");
         lugarTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lugarTextFieldActionPerformed(evt);
@@ -70,7 +100,6 @@ public class FrmVerEvento extends javax.swing.JFrame {
         jPanel1.add(lugarTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 510, 30));
 
         eventoTextField.setEditable(false);
-        eventoTextField.setText("jTextField1");
         eventoTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eventoTextFieldActionPerformed(evt);
@@ -79,7 +108,6 @@ public class FrmVerEvento extends javax.swing.JFrame {
         jPanel1.add(eventoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 510, 30));
 
         fechaTextField.setEditable(false);
-        fechaTextField.setText("jTextField1");
         fechaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fechaTextFieldActionPerformed(evt);
@@ -88,7 +116,6 @@ public class FrmVerEvento extends javax.swing.JFrame {
         jPanel1.add(fechaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 510, 30));
 
         horaTextField.setEditable(false);
-        horaTextField.setText("jTextField1");
         horaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 horaTextFieldActionPerformed(evt);
@@ -105,8 +132,7 @@ public class FrmVerEvento extends javax.swing.JFrame {
         jPanel1.add(lugarTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 510, 30));
 
         horasCulturalesTextField.setEditable(false);
-        horasCulturalesTextField.setText("jTextField1");
-        jPanel1.add(horasCulturalesTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, -1, -1));
+        jPanel1.add(horasCulturalesTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, 100, -1));
 
         descripcionTextArea.setEditable(false);
         descripcionTextArea.setColumns(20);
@@ -117,6 +143,11 @@ public class FrmVerEvento extends javax.swing.JFrame {
 
         aceptarBoton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         aceptarBoton.setText("OK!");
+        aceptarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarBotonActionPerformed(evt);
+            }
+        });
         jPanel1.add(aceptarBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 570, 190, 80));
 
         fondoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo1.png"))); // NOI18N
@@ -156,6 +187,11 @@ public class FrmVerEvento extends javax.swing.JFrame {
     private void lugarTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lugarTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lugarTextField1ActionPerformed
+
+    private void aceptarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBotonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_aceptarBotonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

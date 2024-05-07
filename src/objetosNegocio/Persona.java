@@ -1,9 +1,9 @@
-package entidades;
+package objetosNegocio;
 
 
  // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
  
-public class Personas {
+public class Persona {
 
 
     int ID;
@@ -12,10 +12,10 @@ public class Personas {
     String contrasena;
     boolean esAdmin;
     
-    public Personas() {
+    public Persona() {
     }
 
-    public Personas(int ID, String Nombre, int HorasCultura, String contrasena, boolean esAdmin) {
+    public Persona(int ID, String Nombre, int HorasCultura, String contrasena, boolean esAdmin) {
         this.ID = ID;
         this.Nombre = Nombre;
         this.HorasCultura = HorasCultura;

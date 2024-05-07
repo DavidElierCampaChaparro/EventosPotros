@@ -1,30 +1,27 @@
 package gui;
 
-import dao.Factory;
-import dao.IDAOPersonas;
-import entidades.Personas;
+import crud.Factory;
+import crud.IDAOPersonas;
+import objetosNegocio.Persona;
 import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.FocusEvent;
 import javax.swing.JTextField;
 
 // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
  
 public class FrmInicio extends javax.swing.JFrame {
     private IDAOPersonas personas;
-    private Personas persona;
+    private Persona persona;
     
     public FrmInicio() {
         initComponents();
         personas = Factory.getPersonas();
-        
         anadirPlaceHolderStyle(idTextField);
         anadirPlaceHolderStyle(contrasenaPasswordField);
-        
-        
     }
     
+    //metodos para hacer que el 
     public void anadirPlaceHolderStyle(JTextField textField){
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
@@ -134,10 +131,7 @@ public class FrmInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_idTextFieldActionPerformed
 
     private void entrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarButtonActionPerformed
-        // TODO add your handling code here:
-        
         persona = personas.consultarPersonaLogin(idTextField.getText(), contrasenaPasswordField.getText());
-        
         if (persona == null){
             JOptionPane.showMessageDialog(null, "Usuario no encontrado");
         } else if(persona.isEsAdmin()){
@@ -149,23 +143,17 @@ public class FrmInicio extends javax.swing.JFrame {
             fveu.setVisible(true);
             this.dispose();
         } 
-
-        
     }//GEN-LAST:event_entrarButtonActionPerformed
 
     private void idTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idTextFieldFocusGained
-        // TODO add your handling code here:
         if(idTextField.getText().equals("ID")){
             idTextField.setText(null);
             idTextField.requestFocus();
-            
             removerPlaceHolderStyle(idTextField);
         }
-        
     }//GEN-LAST:event_idTextFieldFocusGained
 
     private void contrasenaPasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenaPasswordFieldFocusGained
-        // TODO add your handling code here:
         if(contrasenaPasswordField.getText().equals("Contraseña")){
             contrasenaPasswordField.setText(null);
             contrasenaPasswordField.requestFocus();
@@ -175,15 +163,14 @@ public class FrmInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_contrasenaPasswordFieldFocusGained
 
     private void idTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idTextFieldFocusLost
-        // TODO add your handling code here:
         if(idTextField.getText().length() == 0){
             anadirPlaceHolderStyle(idTextField);
             idTextField.setText("ID");
         }
     }//GEN-LAST:event_idTextFieldFocusLost
 
+    
     private void contrasenaPasswordFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenaPasswordFieldFocusLost
-        // TODO add your handling code here:
         if(contrasenaPasswordField.getText().length() == 0){
             anadirPlaceHolderStyle(contrasenaPasswordField);
             contrasenaPasswordField.setText("Contraseña");
@@ -192,12 +179,10 @@ public class FrmInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_contrasenaPasswordFieldFocusLost
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        // TODO add your handling code here:
         this.requestFocusInWindow();
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void fondoLabelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fondoLabelFocusGained
-        // TODO add your handling code here:
         this.requestFocusInWindow();
     }//GEN-LAST:event_fondoLabelFocusGained
 

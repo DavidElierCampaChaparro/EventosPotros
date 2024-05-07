@@ -1,11 +1,10 @@
-package dao;
+package crud;
 
 import java.sql.Connection;
 import basesdedatos.Conexion;
-import entidades.Personas;
+import objetosNegocio.Persona;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.sql.PreparedStatement;
 
 
@@ -14,11 +13,11 @@ import java.sql.PreparedStatement;
 public class DAOPersonas implements IDAOPersonas {
 
     @Override
-    public Personas consultarPersonaLogin(String nombre, String contrasena) {
+    public Persona consultarPersonaLogin(String nombre, String contrasena) {
         Conexion conexion = new Conexion("cia");
         String consulta = "select Id, Nombre, HorasCultura, Contrasena, esAdmin from personas where Id = ? and contrasena = ?;";
         ResultSet rs;
-        Personas personaConsultada = null;
+        Persona personaConsultada = null;
         
         try {
             Connection cn = conexion.conectar();
@@ -29,7 +28,7 @@ public class DAOPersonas implements IDAOPersonas {
             rs = pst.executeQuery();
             
             if(rs.next()){
-                personaConsultada = new Personas();
+                personaConsultada = new Persona();
                 personaConsultada.setID(rs.getInt("Id"));
                 personaConsultada.setNombre(rs.getString("Nombre"));
                 personaConsultada.setHorasCultura(rs.getInt("HorasCultura"));
@@ -47,11 +46,11 @@ public class DAOPersonas implements IDAOPersonas {
     }
     
     @Override
-    public Personas consultarPersona(int ID) {
+    public Persona consultarPersona(int ID) {
         Conexion conexion = new Conexion("cia");
         String consulta = "select Id, Nombre, HorasCultura, Contrasena, esAdmin from personas where Id = ?;";
         ResultSet rs;
-        Personas personaConsultada = null;
+        Persona personaConsultada = null;
         
         try {
             Connection cn = conexion.conectar();
@@ -61,7 +60,7 @@ public class DAOPersonas implements IDAOPersonas {
             rs = pst.executeQuery();
             
             if(rs.next()){
-                personaConsultada = new Personas();
+                personaConsultada = new Persona();
                 personaConsultada.setID(rs.getInt("Id"));
                 personaConsultada.setNombre(rs.getString("Nombre"));
                 personaConsultada.setHorasCultura(rs.getInt("HorasCultura"));

@@ -1,24 +1,31 @@
 package gui;
 
  // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
-import dao.Factory;
-import dao.IDAOPersonas;
-import entidades.Personas;
+import crud.Factory;
+import crud.IDAOPersonas;
+import objetosNegocio.Persona;
 
 
  
 public class FrmPerfil extends javax.swing.JFrame {
     private IDAOPersonas personas;
     private int personaID;
-    private Personas persona;
+    private Persona persona;
     
     public FrmPerfil(int personaID) {
         initComponents();
         personas = Factory.getPersonas();
         this.personaID = personaID;
         
+        consultarPersona(personaID);
+        inicializarTextFields();
+    }
+    
+    public void consultarPersona(int personaID){
         persona = personas.consultarPersona(personaID);
-        
+    }
+    
+    public void inicializarTextFields(){
         nombreTextField1.setText(persona.getNombre());
         idTextField1.setText(Integer.toString(persona.getID()));
         horasCulturaTextField.setText(Integer.toString(persona.getHorasCultura()));
@@ -44,27 +51,26 @@ public class FrmPerfil extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        idLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        idLabel1.setBackground(new java.awt.Color(255, 255, 255));
         idLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        idLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        idLabel1.setForeground(new java.awt.Color(204, 255, 255));
         idLabel1.setText("Horas cultura:");
         jPanel1.add(idLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, -1, -1));
 
-        nombreLabel.setBackground(new java.awt.Color(0, 0, 0));
+        nombreLabel.setBackground(new java.awt.Color(204, 255, 255));
         nombreLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        nombreLabel.setForeground(new java.awt.Color(0, 0, 0));
+        nombreLabel.setForeground(new java.awt.Color(204, 255, 255));
         nombreLabel.setText("Nombre");
         jPanel1.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
 
-        horasCulturalesLabel.setBackground(new java.awt.Color(0, 0, 0));
+        horasCulturalesLabel.setBackground(new java.awt.Color(204, 255, 255));
         horasCulturalesLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        horasCulturalesLabel.setForeground(new java.awt.Color(0, 0, 0));
+        horasCulturalesLabel.setForeground(new java.awt.Color(204, 255, 255));
         horasCulturalesLabel.setText("ID");
         jPanel1.add(horasCulturalesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
 
         horasCulturaTextField.setEditable(false);
         horasCulturaTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        horasCulturaTextField.setText("jTextField1");
         horasCulturaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 horasCulturaTextFieldActionPerformed(evt);
@@ -74,12 +80,10 @@ public class FrmPerfil extends javax.swing.JFrame {
 
         idTextField1.setEditable(false);
         idTextField1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        idTextField1.setText("jTextField1");
         jPanel1.add(idTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 440, -1));
 
         nombreTextField1.setEditable(false);
         nombreTextField1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        nombreTextField1.setText("jTextField1");
         nombreTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreTextField1ActionPerformed(evt);
@@ -124,7 +128,6 @@ public class FrmPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_nombreTextField1ActionPerformed
 
     private void okBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBotonActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_okBotonActionPerformed
 

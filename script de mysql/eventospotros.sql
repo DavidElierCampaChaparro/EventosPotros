@@ -17,12 +17,14 @@ insert into eventos(Nombre, Fecha, Hora, Descripcion, Lugar, HorasCultura)
                    ('Nutricion', 'todos los dias', '10 - 12 del dia' , 'asdasdadasdasdsa', 'tutorias itson nainari', 1),
                    ('Emprendimiento y empresas' , 'del 19 de mayo al 25 de julio', 'de 8AM hasta las 6 PM' , 'Este gran evento es impartido porasdasdasdadsad', 'tutorias itson centro', 0);
 
-
+delete from eventos;
                    
 select * from eventos;
 
+update eventos set nombre = 'HOLA', fecha = 'hola', hora = 'hola', lugar = 'hola', descripcion = 'hola', horascultura = 1 where id = 35;
+
 select nombre, fecha, hora, lugar from eventos;
 
-
+select ID, Nombre, Fecha, Hora, Lugar, HorasCultura, Descripcion from eventos where Nombre = ? and Fecha = ? and Hora = ? and Lugar = ?;
 
 select Nombre, Fecha, Hora, Lugar from eventos;

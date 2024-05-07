@@ -1,9 +1,9 @@
-package entidades;
+package objetosNegocio;
 
 
 // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
 
-public class Eventos {
+public class Evento {
     int ID;
     String Nombre;
     String Fecha;
@@ -12,11 +12,27 @@ public class Eventos {
     String Descripcion;
     int HorasCultura;
     
-    public Eventos(){
-        
+    public Evento(){
+    }
+    
+    public Evento(String Nombre, String Fecha, String Hora, String Lugar){
+        this.Nombre = Nombre;
+        this.Fecha = Fecha;
+        this.Hora = Hora;
+        this.Lugar = Lugar;
+    }
+    
+    public Evento(String ID, String Nombre, String Fecha, String Hora, String Lugar, String Descripcion, String HorasCultura) {
+        this.ID = Integer.parseInt(ID);
+        this.Nombre = Nombre;
+        this.Fecha = Fecha;
+        this.Hora = Hora;
+        this.Lugar = Lugar;
+        this.Descripcion = Descripcion;
+        this.HorasCultura = Integer.parseInt(HorasCultura);
     }
 
-    public Eventos(String Nombre, String Fecha, String Hora, String Lugar, String Descripcion, String HorasCultura) {
+    public Evento(String Nombre, String Fecha, String Hora, String Lugar, String Descripcion, String HorasCultura) {
         this.Nombre = Nombre;
         this.Fecha = Fecha;
         this.Hora = Hora;

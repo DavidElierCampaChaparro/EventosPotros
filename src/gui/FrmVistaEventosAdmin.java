@@ -1,7 +1,8 @@
 package gui;
 
-import dao.IDAOEventos;
-import dao.Factory;
+import crud.IDAOEventos;
+import crud.Factory;
+import objetosNegocio.Evento;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -12,15 +13,14 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
     private IDAOEventos eventos;
     
     public FrmVistaEventosAdmin(int personaID) {
-        
-        
-        
         initComponents();
         this.personaID = personaID;
         eventos = Factory.getEventos();
+        
+        // para realizar la consulta de los eventos en la base de datos 
+        // y meterlos a la tabla
         DefaultTableModel modelo = eventos.mostrarEventos();
         eventosTable.setModel(modelo);
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -56,9 +56,16 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
                 "Nombre", "Fecha", "Hora", "Lugar"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -76,6 +83,12 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(eventosTable);
+        if (eventosTable.getColumnModel().getColumnCount() > 0) {
+            eventosTable.getColumnModel().getColumn(0).setResizable(false);
+            eventosTable.getColumnModel().getColumn(1).setResizable(false);
+            eventosTable.getColumnModel().getColumn(2).setResizable(false);
+            eventosTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 990, 580));
 
@@ -149,32 +162,47 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemCrearEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearEventoActionPerformed
-        // TODO add your handling code here:
         FrmCrearEvento fce = new FrmCrearEvento();
         fce.setVisible(true);
     }//GEN-LAST:event_menuItemCrearEventoActionPerformed
 
     private void menuItemVerPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVerPerfilActionPerformed
-        // TODO add your handling code here:
         FrmPerfil fp = new FrmPerfil(personaID);
         fp.setVisible(true);
     }//GEN-LAST:event_menuItemVerPerfilActionPerformed
 
     private void menuItemCerrarSesiónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCerrarSesiónActionPerformed
-        // TODO add your handling code here:
         FrmInicio fi = new FrmInicio();
         fi.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuItemCerrarSesiónActionPerformed
 
     private void menuItemAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcercaDeActionPerformed
-        // TODO add your handling code here:
         FrmAcercaDe fad = new FrmAcercaDe();
         fad.setVisible(true);
     }//GEN-LAST:event_menuItemAcercaDeActionPerformed
 
     private void eventosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eventosTableMouseClicked
-        // TODO add your handling code here:
+        int fila = eventosTable.getSelectedRow();
+        Evento evento;
+        String nombreEvento;
+        String fechaEvento;
+        String horaEvento;
+        String lugarEvento;
+        
+        // el metodo getSelectedRow regresa -1 si no se clickeó en ninguna fila,
+        // por ende si no es -1, procederemos a extraer los datos de las celdas para
+        // crear un frame para vizualizar una consulta de ese evento
+        if (fila != -1){
+            nombreEvento = (String) eventosTable.getValueAt(fila, 0);
+            fechaEvento = (String) eventosTable.getValueAt(fila, 1);
+            horaEvento = (String) eventosTable.getValueAt(fila, 2);
+            lugarEvento = (String) eventosTable.getValueAt(fila, 3);
+            evento = new Evento(nombreEvento, fechaEvento, horaEvento, lugarEvento);
+            
+            FrmEditarEvento fee = new FrmEditarEvento(evento);
+            fee.setVisible(true);
+        }
     }//GEN-LAST:event_eventosTableMouseClicked
 
     
