@@ -6,18 +6,29 @@ import crud.IDAOEventos;
 import objetosNegocio.Evento;
 
 
- 
+/**
+* @author David Elier Campa Chaparro 245178
+* @author Maximiliano Reyna Aquilar 244877
+*/
 public class FrmVerEvento extends javax.swing.JFrame {
     private IDAOEventos eventos;
     private Evento evento;
     
+    /**
+     * Recibe los datos visibles del evento clickeado: Nombre,Fecha,Hora,Lugar
+     * para después consultar todos sus demás datos
+     */
     public FrmVerEvento(Evento datos) {
         initComponents();
         eventos = Factory.getEventos();
-        this.evento = eventos.consultarEvento(datos);
-        inicializarTextFields();
+        this.evento = eventos.consultarEvento(datos); // El evento es = la consulta del evento con sus 4 datos:  Nombre,Fecha,Hora,Lugar
+        inicializarTextFields();                            
     }
 
+    /**
+     * Método para establecer los campos de texto con
+     * los atributos del evento
+     */
     public void inicializarTextFields(){
         eventoTextField.setText(this.evento.getNombre());
         fechaTextField.setText(this.evento.getFecha());

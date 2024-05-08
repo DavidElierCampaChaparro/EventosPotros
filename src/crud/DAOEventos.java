@@ -10,13 +10,18 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-  // @author David Elier Campa Chaparro 245178
- 
+/**
+* @author David Elier Campa Chaparro 245178
+* @author Maximiliano Reyna Aquilar 244877
+*/
 public class DAOEventos implements IDAOEventos{
     
 
-    //  este método está pensado para consultar todos los datos de un evento al solo recibir un evento con
-    // 4 atributos nombre, fecha, hora, y lugar de la table
+    /**
+     * Este método está pensado para ser usado en FrmEditarEvento y FrmVerEvento
+     * @param evento Recibe un evento que se espera que solo tenga inicializados Nombre,Fecha,Hora,Lugar porque esos datos contiene la tabla de eventos
+     * @return retorna el evento consultado con todos sus valores, null si no se encontró
+     */
     @Override
     public Evento consultarEvento(Evento evento) {
         Conexion conexion = new Conexion("eventospotros");
@@ -48,7 +53,10 @@ public class DAOEventos implements IDAOEventos{
         return eventoConsultado;
     }
 
-    // método para insertar
+    /**
+     * Inserta un evento en la base de datos
+     * @param evento
+     */
     @Override
     public void insertarEvento(Evento evento){
         Conexion conexion = new Conexion("eventospotros");
@@ -70,7 +78,10 @@ public class DAOEventos implements IDAOEventos{
         }        
     }
     
-    // método para eliminar
+     /**
+     * Elimina un evento de la base de datos por medio de su ID
+     * @param evento
+     */
     @Override
     public void eliminarEvento(Evento evento){
         Conexion conexion = new Conexion("eventospotros");
@@ -87,8 +98,10 @@ public class DAOEventos implements IDAOEventos{
         }        
     }
     
-    // este método regresa un default table model con todos los eventos
-    // está pensado para setearlo en eventosTable para mostrar sus eventos
+     /**
+     * 
+     * @return regresa una DefaultTableModel con la consulta de todos los eventos
+     */
     @Override
     public DefaultTableModel mostrarEventos(){
         String[] nombresColumnas = {"Nombre", "Fecha", "Hora", "Lugar"};
@@ -126,8 +139,11 @@ public class DAOEventos implements IDAOEventos{
         }
         return modelo;
     }
-   
-    // está pensado para usarse el cuadro Guardar Evento del FrmEditarEvento
+    
+    /**
+     * Actualiza un evento por medio de su ID
+     * @param evento
+     */
     @Override
     public void actualizarEvento(Evento evento){
         Conexion conexion = new Conexion("eventospotros");

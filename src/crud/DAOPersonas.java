@@ -8,12 +8,19 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
 
-// @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
-// esta clase solo es de consultas de las personas en el cia
-
+/**
+* @author David Elier Campa Chaparro 245178
+* @author Maximiliano Reyna Aquilar 244877
+*/
 public class DAOPersonas implements IDAOPersonas {
 
-    // login
+    /**
+     * Consulta un a persona por medio de su nombre y contraseña
+     * @param nombre
+     * @param contrasena
+     * @return Persona retorna la persona en caso de que si se haya encontrado, se consulta la Persona completa
+     *          para saber si es admin o no y poder generar el Frame del admin o el Frame del usuario
+     */
     @Override
     public Persona consultarPersonaLogin(String nombre, String contrasena) {
         Conexion conexion = new Conexion("cia");
@@ -47,8 +54,12 @@ public class DAOPersonas implements IDAOPersonas {
         return personaConsultada;
     }
     
-    // este método está pensado para recibir el ID de la persona
-    // para conseguir sus datos en el FrmPerfil
+    /**
+     * Este método está pensado para consultar una persona por medio de su ID
+     * y mostrarlo en el FrmPerfil
+     * @param ID
+     * @return regresa una persona con todos sus atributos
+     */
     @Override
     public Persona consultarPersona(int ID) {
         Conexion conexion = new Conexion("cia");

@@ -5,20 +5,27 @@ import crud.IDAOEventos;
 import objetosNegocio.Evento;
 import javax.swing.JOptionPane;
 
- // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
-public class FrmEditarEvento extends javax.swing.JFrame {
+/**
+* @author David Elier Campa Chaparro 245178
+* @author Maximiliano Reyna Aquilar 244877
+*/
+public class FrmEditarEvento extends javax.swing.JDialog{
     private IDAOEventos eventos;
     private Evento evento;
     
     // recibe los datos del evento clickeado para realizar una consulta
     public FrmEditarEvento(Evento datos) {
+        super(); // para que se actualize la lista de eventos automaticamente al momento de realizar la accion
         initComponents();
         eventos = Factory.getEventos();
         this.evento = eventos.consultarEvento(datos);
-        System.out.println(evento.getID());
         inicializarTextFields();
     }
     
+    /**
+     * Inicializa los textos de los campos te textos con el evento que se consultó
+     * 
+     */
     public void inicializarTextFields(){
         eventoTextField.setText(this.evento.getNombre());
         fechaTextField.setText(this.evento.getFecha());

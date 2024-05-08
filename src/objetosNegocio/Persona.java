@@ -1,11 +1,11 @@
 package objetosNegocio;
 
 
- // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
- 
+/**
+* @author David Elier Campa Chaparro 245178
+* @author Maximiliano Reyna Aquilar 244877
+*/
 public class Persona {
-
-
     int ID;
     String Nombre;
     int HorasCultura;

@@ -8,8 +8,10 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
 
-// @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
- 
+/**
+* @author David Elier Campa Chaparro 245178
+* @author Maximiliano Reyna Aquilar 244877
+*/ 
 public class FrmInicio extends javax.swing.JFrame {
     private IDAOPersonas personas;
     private Persona persona;

@@ -6,12 +6,19 @@ import crud.IDAOPersonas;
 import objetosNegocio.Persona;
 
 
- 
+/**
+* @author David Elier Campa Chaparro 245178
+* @author Maximiliano Reyna Aquilar 244877
+*/
 public class FrmPerfil extends javax.swing.JFrame {
     private IDAOPersonas personas;
     private int personaID;
     private Persona persona;
-    
+        
+    /**
+     * 
+     * @param personaID
+     */
     public FrmPerfil(int personaID) {
         initComponents();
         personas = Factory.getPersonas();
@@ -21,10 +28,17 @@ public class FrmPerfil extends javax.swing.JFrame {
         inicializarTextFields();
     }
     
+    /**
+     * Recibe un id de la persona con la que se inició sesión
+     * @param personaID
+     */
     public void consultarPersona(int personaID){
         persona = personas.consultarPersona(personaID);
     }
     
+    /**
+     * Inicializa todos los textfields de la persona 
+     */
     public void inicializarTextFields(){
         nombreTextField1.setText(persona.getNombre());
         idTextField1.setText(Integer.toString(persona.getID()));

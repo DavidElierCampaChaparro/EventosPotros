@@ -5,7 +5,10 @@ import crud.IDAOEventos;
 import objetosNegocio.Evento;
 import javax.swing.JOptionPane;
 
- // @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
+/**
+* @author David Elier Campa Chaparro 245178
+* @author Maximiliano Reyna Aquilar 244877
+*/
 public class FrmCrearEvento extends javax.swing.JFrame {
     private IDAOEventos eventos;
     
@@ -194,6 +197,10 @@ public class FrmCrearEvento extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_cancelarButtonActionPerformed
 
+    /**
+     * Verifica que los campos de texto no sean nulos para después crear un evento
+     * con sus respectivos valores e insertarlo en la base de datos
+     */
     private void crearEventoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearEventoButtonActionPerformed
         if (eventoTextField.getText().isEmpty() || 
             fechaTextField.getText().isEmpty() ||

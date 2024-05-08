@@ -22,7 +22,10 @@ public class Conexion {
         this.bd = bd;
     }
     
-    // retorna la conexión establecida para no tener que establecerla a cada ratito
+    /**
+    * Consigue la conexión
+    * @return regresa la conexión a la base de datos
+    */    
     public Connection conectar(){
         try {
             Class.forName(driver);

@@ -6,8 +6,10 @@ import objetosNegocio.Evento;
 import javax.swing.table.DefaultTableModel;
 
 
-// @author David Elier Campa Chaparro 245178 - Maximiliano Reyna Aguilar 244877
- 
+/**
+* @author David Elier Campa Chaparro 245178
+* @author Maximiliano Reyna Aquilar 244877
+*/ 
 public class FrmVistaEventosAdmin extends javax.swing.JFrame {
     private int personaID;
     private IDAOEventos eventos;
@@ -18,13 +20,17 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
         initComponents();
         this.personaID = personaID;
         eventos = Factory.getEventos();
-        
-        // para realizar la consulta de los eventos en la base de datos 
-        // y meterlos a la tabla
+        inicializarTabla();
+    }
+
+    /**
+    * Método para meter los datos de los eventos a la tabla
+    */
+    public void inicializarTabla(){
         DefaultTableModel modelo = eventos.mostrarEventos();
         eventosTable.setModel(modelo);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -183,6 +189,10 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
         fad.setVisible(true);
     }//GEN-LAST:event_menuItemAcercaDeActionPerformed
 
+   /**
+    * Extrae los datos de la fila en la que se clickeó el evento para después
+    * crear un frame que lo muestre
+    */
     private void eventosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eventosTableMouseClicked
         int fila = eventosTable.getSelectedRow();
         Evento evento;
@@ -202,7 +212,10 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
             evento = new Evento(nombreEvento, fechaEvento, horaEvento, lugarEvento);
             
             FrmEditarEvento fee = new FrmEditarEvento(evento);
+            fee.setModal(true);// para que se actualize la lista de eventos automaticamente al momento de realizar la accion
             fee.setVisible(true);
+        
+            
         }
     }//GEN-LAST:event_eventosTableMouseClicked
 
