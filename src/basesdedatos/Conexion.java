@@ -16,7 +16,7 @@ public class Conexion {
     String user = "root";
     String password = "xr471112";
     String driver = "com.mysql.cj.jdbc.Driver";
-    Connection cx;
+    Connection connection;
     
     public Conexion(String bd){
         this.bd = bd;
@@ -29,22 +29,22 @@ public class Conexion {
     public Connection conectar(){
         try {
             Class.forName(driver);
-            cx = DriverManager.getConnection(url+bd, user, password);
+            connection = DriverManager.getConnection(url+bd, user, password);
             System.out.println("se conectó a la base de datos "+ bd);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("no se pudo conectar a la base de datos "+ bd);
         }
-        return cx;
+        return connection;
     }
     
     public Connection getConnection(){
-        return cx;
+        return connection;
     }
     
     public void desconectar(){
         try {
-            cx.close();
+            connection.close();
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -1,0 +1,5 @@
+hay que ejecutar los scripts de la carpeta "script de mysql"
+para crear la base de datos y tener insertados los usuarios y eventos,
+son dos bases de datos
+
+también debe de tener abierto el puerto 3306 en su computadora e iniciado
