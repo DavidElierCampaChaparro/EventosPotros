@@ -171,8 +171,9 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
 
     private void menuItemCrearEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearEventoActionPerformed
         DlgCrearEvento fce = new DlgCrearEvento();
-        
+        fce.setModal(true);
         fce.setVisible(true);
+        inicializarTabla();
     }//GEN-LAST:event_menuItemCrearEventoActionPerformed
 
     private void menuItemVerPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVerPerfilActionPerformed
@@ -216,7 +217,8 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
             DlgEditarEvento fee = new DlgEditarEvento(evento);
             fee.setModal(true);// para que se actualize la lista de eventos automaticamente al momento de realizar la accion
             fee.setVisible(true);
-        
+            
+            inicializarTabla();
             
         }
     }//GEN-LAST:event_eventosTableMouseClicked
