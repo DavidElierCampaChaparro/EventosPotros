@@ -13,16 +13,17 @@ import javax.swing.table.DefaultTableModel;
 public class FrmVistaEventosAdmin extends javax.swing.JFrame {
     private int personaID;
     private IDAOEventos eventos;
-    
-    // recibe el id de la persona con la que se inició sesión 
-    // para poder consultarla en el FrmPerfil
+    /**
+    * recibe el id de la persona con la que se inició sesión 
+ para poder consultarla en el DlgPerfil
+    */
     public FrmVistaEventosAdmin(int personaID) {
         initComponents();
         this.personaID = personaID;
         eventos = Factory.getEventos();
         inicializarTabla();
     }
-
+    
     /**
     * Método para meter los datos de los eventos a la tabla
     */
@@ -169,12 +170,13 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemCrearEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearEventoActionPerformed
-        FrmCrearEvento fce = new FrmCrearEvento();
+        DlgCrearEvento fce = new DlgCrearEvento();
+        
         fce.setVisible(true);
     }//GEN-LAST:event_menuItemCrearEventoActionPerformed
 
     private void menuItemVerPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVerPerfilActionPerformed
-        FrmPerfil fp = new FrmPerfil(personaID);
+        DlgPerfil fp = new DlgPerfil(personaID);
         fp.setVisible(true);
     }//GEN-LAST:event_menuItemVerPerfilActionPerformed
 
@@ -185,7 +187,7 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemCerrarSesiónActionPerformed
 
     private void menuItemAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcercaDeActionPerformed
-        FrmAcercaDe fad = new FrmAcercaDe();
+        DlgAcercaDe fad = new DlgAcercaDe();
         fad.setVisible(true);
     }//GEN-LAST:event_menuItemAcercaDeActionPerformed
 
@@ -211,7 +213,7 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
             lugarEvento = (String) eventosTable.getValueAt(fila, 3);
             evento = new Evento(nombreEvento, fechaEvento, horaEvento, lugarEvento);
             
-            FrmEditarEvento fee = new FrmEditarEvento(evento);
+            DlgEditarEvento fee = new DlgEditarEvento(evento);
             fee.setModal(true);// para que se actualize la lista de eventos automaticamente al momento de realizar la accion
             fee.setVisible(true);
         

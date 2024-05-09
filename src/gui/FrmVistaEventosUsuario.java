@@ -15,7 +15,7 @@ public class FrmVistaEventosUsuario extends javax.swing.JFrame {
     private IDAOEventos eventos;
 
     // recibe el id de la persona con la que se inició sesión 
-    // para poder consultarla en el FrmPerfil
+    // para poder consultarla en el DlgPerfil
     public FrmVistaEventosUsuario(int personaID) {
         initComponents();
         this.personaID = personaID;
@@ -148,12 +148,12 @@ public class FrmVistaEventosUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcercaDeActionPerformed
-        FrmAcercaDe fad = new FrmAcercaDe();
+        DlgAcercaDe fad = new DlgAcercaDe();
         fad.setVisible(true);
     }//GEN-LAST:event_menuItemAcercaDeActionPerformed
 
     private void menuItemPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemPerfilActionPerformed
-        FrmPerfil fp = new FrmPerfil(personaID);
+        DlgPerfil fp = new DlgPerfil(personaID);
         fp.setVisible(true);
     }//GEN-LAST:event_menuItemPerfilActionPerformed
 
@@ -185,7 +185,7 @@ public class FrmVistaEventosUsuario extends javax.swing.JFrame {
             lugarEvento = (String) eventosTable.getValueAt(fila, 3);
             evento = new Evento(nombreEvento, fechaEvento, horaEvento, lugarEvento);
             
-            FrmVerEvento fee = new FrmVerEvento(evento);
+            DlgVerEvento fee = new DlgVerEvento(evento);
             fee.setVisible(true);
             
         }

@@ -19,18 +19,27 @@ public class FrmInicio extends javax.swing.JFrame {
     public FrmInicio() {
         initComponents();
         personas = Factory.getPersonas();
-        anadirPlaceHolderStyle(idTextField);
-        anadirPlaceHolderStyle(contrasenaPasswordField);
+        
+        anadirPlaceHolderStyle(idTextField); // para hacer que se vea asi chilo el text field del id
+        anadirPlaceHolderStyle(contrasenaPasswordField); // para hacer chilo el textfield de la contraseña
     }
     
-    //metodos para hacer que el 
+    /**
+    * Metodo para el campo de texto de la contraseña y el ID.
+    * Es para que cuando no haya ningun texto puesto se establezca solito algo
+    * @param textField 
+    */ 
     public void anadirPlaceHolderStyle(JTextField textField){
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
         textField.setForeground(Color.gray);
     }
-
+    /**
+    * Metodo para el campo de texto de la contraseña y el ID.
+    * Es para que cuando no haya ningun texto puesto se establezca solito algo
+    * @param textField 
+    */ 
     public void removerPlaceHolderStyle(JTextField textField){
         Font font = textField.getFont();
         font = font.deriveFont(Font.PLAIN | Font.BOLD);
@@ -103,6 +112,11 @@ public class FrmInicio extends javax.swing.JFrame {
                 contrasenaPasswordFieldFocusLost(evt);
             }
         });
+        contrasenaPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contrasenaPasswordFieldActionPerformed(evt);
+            }
+        });
         jPanel1.add(contrasenaPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 440, -1));
 
         fondoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoInicio.png"))); // NOI18N
@@ -132,6 +146,11 @@ public class FrmInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_idTextFieldActionPerformed
 
+    /**
+    * Consulta una persona con los datos del idTextField y contrasenaTextField.
+    * Después verifica el atributo de la persona es admin para después crear con el
+    * frame correspondiente
+    */ 
     private void entrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarButtonActionPerformed
         persona = personas.consultarPersonaLogin(idTextField.getText(), contrasenaPasswordField.getText());
         if (persona == null){
@@ -147,6 +166,9 @@ public class FrmInicio extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_entrarButtonActionPerformed
 
+    /**
+    * Es para hacer mas chilo el textfield del id
+    */ 
     private void idTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idTextFieldFocusGained
         if(idTextField.getText().equals("ID")){
             idTextField.setText(null);
@@ -155,6 +177,9 @@ public class FrmInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_idTextFieldFocusGained
 
+    /**
+    * Es para hacer mas chilo el textfield de la contrasena
+    */ 
     private void contrasenaPasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenaPasswordFieldFocusGained
         if(contrasenaPasswordField.getText().equals("Contraseña")){
             contrasenaPasswordField.setText(null);
@@ -164,6 +189,9 @@ public class FrmInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_contrasenaPasswordFieldFocusGained
 
+    /**
+    * Es para hacer mas chilo el textfield del id
+    */ 
     private void idTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idTextFieldFocusLost
         if(idTextField.getText().length() == 0){
             anadirPlaceHolderStyle(idTextField);
@@ -171,7 +199,9 @@ public class FrmInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_idTextFieldFocusLost
 
-    
+    /**
+    * Es para hacer mas chilo el textfield de la contrasena
+    */ 
     private void contrasenaPasswordFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenaPasswordFieldFocusLost
         if(contrasenaPasswordField.getText().length() == 0){
             anadirPlaceHolderStyle(contrasenaPasswordField);
@@ -187,6 +217,10 @@ public class FrmInicio extends javax.swing.JFrame {
     private void fondoLabelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fondoLabelFocusGained
         this.requestFocusInWindow();
     }//GEN-LAST:event_fondoLabelFocusGained
+
+    private void contrasenaPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contrasenaPasswordFieldActionPerformed
 
 
 
