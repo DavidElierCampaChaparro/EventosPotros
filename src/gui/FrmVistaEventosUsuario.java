@@ -14,8 +14,11 @@ public class FrmVistaEventosUsuario extends javax.swing.JFrame {
     private int personaID;
     private IDAOEventos eventos;
 
-    // recibe el id de la persona con la que se inició sesión 
-    // para poder consultarla en el DlgPerfil
+    /**
+     * El método recibe el id de la persona con la que se inició sesión
+     * para poder consultarla en el DLgPerfil
+     * @param personaID El Id de la persona recibida
+     */
     public FrmVistaEventosUsuario(int personaID) {
         initComponents();
         this.personaID = personaID;
@@ -23,8 +26,10 @@ public class FrmVistaEventosUsuario extends javax.swing.JFrame {
         inicializarTabla();
     }
     
-    // para realizar la consulta de los eventos en la base de datos 
-    // y meterlos a la tabla
+    /**
+     * Para poder realizar la consulta de los eventos en la base de datos
+     * y poderlos colocar en la tabla
+     */
     public void inicializarTabla(){
         DefaultTableModel modelo = eventos.mostrarEventos();
         eventosTable.setModel(modelo);

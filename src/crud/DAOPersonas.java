@@ -15,9 +15,9 @@ import java.sql.PreparedStatement;
 public class DAOPersonas implements IDAOPersonas {
 
     /**
-     * Consulta un a persona por medio de su nombre y contraseña
-     * @param nombre
-     * @param contrasena
+     * Consulta una persona por medio de su nombre y contraseña
+     * @param nombre el nombre para realizar la consulta
+     * @param contrasena la contraseña para realizar la consulta
      * @return Persona retorna la persona en caso de que si se haya encontrado, se consulta la Persona completa
      *          para saber si es admin o no y poder generar el Frame del admin o el Frame del usuario
      */
@@ -57,7 +57,7 @@ public class DAOPersonas implements IDAOPersonas {
     /**
      * Este método está pensado para consultar una persona por medio de su ID
      * y mostrarlo en el FrmPerfil
-     * @param ID
+     * @param ID El id de la persona que se consulta
      * @return regresa una persona con todos sus atributos
      */
     @Override

@@ -16,8 +16,9 @@ public class DlgPerfil extends javax.swing.JDialog {
     private Persona persona;
         
     /**
-     * 
-     * @param personaID
+     * El método recibe el id de la persona con la que se inició sesión
+     * para poder consultarla en DlgPerfil
+     * @param personaID El id de la persona recibida
      */
     public DlgPerfil(int personaID) {
         initComponents();
@@ -30,7 +31,7 @@ public class DlgPerfil extends javax.swing.JDialog {
     
     /**
      * Recibe un id de la persona con la que se inició sesión
-     * @param personaID
+     * @param personaID El id de la persona que inició sesión
      */
     public void consultarPersona(int personaID){
         persona = personas.consultarPersona(personaID);

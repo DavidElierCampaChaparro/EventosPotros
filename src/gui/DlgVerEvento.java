@@ -15,8 +15,9 @@ public class DlgVerEvento extends javax.swing.JDialog {
     private Evento evento;
     
     /**
-     * Recibe los datos visibles del evento clickeado: Nombre,Fecha,Hora,Lugar
+     * Recibe los datos visibles del evento clickeado: Nombre, Fecha, Hora, Lugar
      * para después consultar todos sus demás datos
+     * @param datos Los datos visibles del evento que se reciben 
      */
     public DlgVerEvento(Evento datos) {
         initComponents();

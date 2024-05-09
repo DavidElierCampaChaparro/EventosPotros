@@ -78,7 +78,7 @@ public class DAOEventos implements IDAOEventos{
         }        
     }
     
-     /**
+    /**
      * Elimina un evento de la base de datos por medio de su ID
      * @param evento
      */
@@ -98,8 +98,8 @@ public class DAOEventos implements IDAOEventos{
         }        
     }
     
-     /**
-     * 
+    /**
+     * Este método se encarga de mostrar todos los eventos en la tabla
      * @return regresa una DefaultTableModel con la consulta de todos los eventos
      */
     @Override

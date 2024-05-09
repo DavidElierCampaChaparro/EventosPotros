@@ -13,10 +13,12 @@ import javax.swing.table.DefaultTableModel;
 public class FrmVistaEventosAdmin extends javax.swing.JFrame {
     private int personaID;
     private IDAOEventos eventos;
+    
     /**
-    * recibe el id de la persona con la que se inició sesión 
- para poder consultarla en el DlgPerfil
-    */
+     * Se recibe el id de la persona con la que inició sesión
+     * para poder consultarla en DlgPerfil
+     * @param personaID 
+     */
     public FrmVistaEventosAdmin(int personaID) {
         initComponents();
         this.personaID = personaID;
@@ -25,8 +27,8 @@ public class FrmVistaEventosAdmin extends javax.swing.JFrame {
     }
     
     /**
-    * Método para meter los datos de los eventos a la tabla
-    */
+     * Método para colocaar los datos de los eventos a la tabla
+     */
     public void inicializarTabla(){
         DefaultTableModel modelo = eventos.mostrarEventos();
         eventosTable.setModel(modelo);

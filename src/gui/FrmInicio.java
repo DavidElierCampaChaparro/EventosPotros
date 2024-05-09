@@ -20,13 +20,13 @@ public class FrmInicio extends javax.swing.JFrame {
         initComponents();
         personas = Factory.getPersonas();
         
-        anadirPlaceHolderStyle(idTextField); // para hacer que se vea asi chilo el text field del id
-        anadirPlaceHolderStyle(contrasenaPasswordField); // para hacer chilo el textfield de la contraseña
+        anadirPlaceHolderStyle(idTextField); // para hacer que se vea más presentable el text field del id
+        anadirPlaceHolderStyle(contrasenaPasswordField); // para hacer más presentable el textfield de la contraseña
     }
     
     /**
     * Metodo para el campo de texto de la contraseña y el ID.
-    * Es para que cuando no haya ningun texto puesto se establezca solito algo
+    * Es utilizado para que cuando no haya ningun texto puesto se establezca de manera automática
     * @param textField 
     */ 
     public void anadirPlaceHolderStyle(JTextField textField){
@@ -37,7 +37,7 @@ public class FrmInicio extends javax.swing.JFrame {
     }
     /**
     * Metodo para el campo de texto de la contraseña y el ID.
-    * Es para que cuando no haya ningun texto puesto se establezca solito algo
+    * Es utilizado para que cuando no haya ningun texto puesto se establezca de manera automática
     * @param textField 
     */ 
     public void removerPlaceHolderStyle(JTextField textField){
@@ -167,7 +167,7 @@ public class FrmInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_entrarButtonActionPerformed
 
     /**
-    * Es para hacer mas chilo el textfield del id
+    * Es para hacer más presentable el textfield del id
     */ 
     private void idTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idTextFieldFocusGained
         if(idTextField.getText().equals("ID")){
@@ -178,7 +178,7 @@ public class FrmInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_idTextFieldFocusGained
 
     /**
-    * Es para hacer mas chilo el textfield de la contrasena
+    * Es para hacer más presentable el textfield de la contraseña
     */ 
     private void contrasenaPasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenaPasswordFieldFocusGained
         if(contrasenaPasswordField.getText().equals("Contraseña")){
@@ -190,7 +190,7 @@ public class FrmInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_contrasenaPasswordFieldFocusGained
 
     /**
-    * Es para hacer mas chilo el textfield del id
+    * Es para hacer más presentable el textfield del id
     */ 
     private void idTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idTextFieldFocusLost
         if(idTextField.getText().length() == 0){
@@ -200,7 +200,7 @@ public class FrmInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_idTextFieldFocusLost
 
     /**
-    * Es para hacer mas chilo el textfield de la contrasena
+    * Es para hacer más presentable el textfield de la contraseña
     */ 
     private void contrasenaPasswordFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenaPasswordFieldFocusLost
         if(contrasenaPasswordField.getText().length() == 0){

@@ -22,8 +22,8 @@ public class Conexion {
         this.bd = bd;
     }
     
-    /**
-    * Consigue la conexión
+   /**
+    * En este método se consigue la conexión con la base de datos
     * @return regresa la conexión a la base de datos
     */    
     public Connection conectar(){

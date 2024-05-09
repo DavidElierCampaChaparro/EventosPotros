@@ -13,9 +13,13 @@ public class DlgEditarEvento extends javax.swing.JDialog{
     private IDAOEventos eventos;
     private Evento evento;
     
-    // recibe los datos del evento clickeado para realizar una consulta
+    /**
+     * Recibe los datos del evento clickeado: Nombre, Fecha, Hora, Lugar
+     * para después poder consultar todos sus demás datos
+     * @param datos Los datos del evento que se reciben
+     */
     public DlgEditarEvento(Evento datos) {
-        super(); // para que se actualize la lista de eventos automaticamente al momento de realizar la accion
+        super(); // Para que se actualize la lista de eventos automáticamente al momento de realizar la accion
         initComponents();
         eventos = Factory.getEventos();
         this.evento = eventos.consultarEvento(datos);
@@ -24,7 +28,6 @@ public class DlgEditarEvento extends javax.swing.JDialog{
     
     /**
      * Inicializa los textos de los campos te textos con el evento que se consultó
-     * 
      */
     public void inicializarTextFields(){
         eventoTextField.setText(this.evento.getNombre());
