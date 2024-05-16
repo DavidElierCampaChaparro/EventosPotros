@@ -3,18 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/DlgEditarEvento.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmVistaEventosUsuario.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/crud/IDAOPersonas.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/main/main.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/DlgVerEvento.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/crud/DAOEventos.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/FrmVistaEventosAdmin.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/crud/IDAOEventos.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/basesdedatos/Conexion.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/crud/DAOPersonas.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/gui/DlgPerfil.java</file>
-            <file>file:/C:/Users/crazy/OneDrive/Escritorio/ProyectoDiseno/EventosPotros/src/crud/Factory.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/Proyecto%20Final%20David%20Maximiliano/EventosPotros/src/objetosNegocio/Evento.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/Proyecto%20Final%20David%20Maximiliano/EventosPotros/src/basesdedatos/Conexion.java</file>
         </group>
     </open-files>
 </project-private>
